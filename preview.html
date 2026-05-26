@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Опрос — Россия страна возможностей</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:
+linear-gradient(rgba(5,8,20,0.9),rgba(5,8,20,0.95)),
+url('https://images.unsplash.com/photo-1520637836862-4d197d17c90a?q=80&w=1600&auto=format&fit=crop');
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+color:white;
+min-height:100vh;
+padding:40px 10%;
+}
+
+.container{
+max-width:950px;
+margin:auto;
+}
+
+.top{
+text-align:center;
+margin-bottom:50px;
+}
+
+.top h1{
+font-size:65px;
+margin-bottom:20px;
+background:linear-gradient(45deg,#00d4ff,#8f00ff,#ff00a6);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.top p{
+font-size:22px;
+line-height:1.8;
+color:#d7d7d7;
+}
+
+.form-box{
+background:rgba(255,255,255,0.06);
+backdrop-filter:blur(12px);
+padding:45px;
+border-radius:35px;
+border:1px solid rgba(255,255,255,0.08);
+box-shadow:0 0 35px rgba(0,0,0,0.4);
+}
+
+.question{
+margin-bottom:45px;
+}
+
+.question h2{
+font-size:30px;
+margin-bottom:25px;
+color:#00d4ff;
+}
+
+.option{
+display:flex;
+align-items:center;
+gap:15px;
+margin:18px 0;
+padding:18px;
+border-radius:18px;
+background:rgba(255,255,255,0.04);
+transition:0.3s;
+cursor:pointer;
+border:1px solid rgba(255,255,255,0.05);
+}
+
+.option:hover{
+transform:translateX(8px);
+background:rgba(255,255,255,0.08);
+}
+
+.option input{
+transform:scale(1.4);
+accent-color:#ff00a6;
+}
+
+.option label{
+font-size:20px;
+cursor:pointer;
+width:100%;
+}
+
+button{
+width:100%;
+padding:20px;
+border:none;
+border-radius:18px;
+font-size:24px;
+font-weight:bold;
+cursor:pointer;
+background:linear-gradient(45deg,#00d4ff,#8f00ff,#ff00a6);
+color:white;
+transition:0.4s;
+margin-top:15px;
+}
+
+button:hover{
+transform:scale(1.02);
+box-shadow:0 0 25px rgba(255,0,166,0.4);
+}
+
+#result{
+display:none;
+margin-top:40px;
+padding:35px;
+border-radius:25px;
+background:rgba(0,255,170,0.12);
+border:1px solid rgba(0,255,170,0.25);
+}
+
+#result h2{
+font-size:38px;
+margin-bottom:20px;
+color:#00ffb7;
+}
+
+#result p{
+font-size:22px;
+line-height:1.9;
+color:#d7fff1;
+}
+
+.info{
+margin-top:50px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:25px;
+}
+
+.card{
+background:rgba(255,255,255,0.05);
+padding:35px;
+border-radius:28px;
+text-align:center;
+transition:0.4s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card i{
+font-size:50px;
+margin-bottom:20px;
+color:#00d4ff;
+}
+
+.card h3{
+font-size:28px;
+margin-bottom:15px;
+}
+
+.card p{
+font-size:18px;
+line-height:1.7;
+color:#ddd;
+}
+
+footer{
+margin-top:60px;
+text-align:center;
+padding:40px;
+background:rgba(255,255,255,0.04);
+border-radius:28px;
+}
+
+footer h2{
+font-size:36px;
+margin-bottom:20px;
+color:#ff00a6;
+}
+
+footer p{
+font-size:20px;
+margin:10px 0;
+color:#ddd;
+}
+
+.creator{
+margin-top:20px;
+font-size:28px;
+font-weight:bold;
+color:#00d4ff;
+}
+
+@media(max-width:850px){
+
+.top h1{
+font-size:42px;
+}
+
+.top p{
+font-size:18px;
+}
+
+.question h2{
+font-size:24px;
+}
+
+.option label{
+font-size:17px;
+}
+
+button{
+font-size:20px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="top">
+<h1>Опрос студентов</h1>
+
+<p>
+Тема исследования:
+«Россия — страна возможностей».
+Просим пройти небольшой опрос для анализа мнения молодежи.
+</p>
+</div>
+
+<div class="form-box">
+
+<div class="question">
+<h2><i class="fa-solid fa-earth-europe"></i> 1. Считаете ли вы Россию страной возможностей?</h2>
+
+<div class="option">
+<input type="radio" name="q1">
+<label>Да, в стране много возможностей для молодежи</label>
+</div>
+
+<div class="option">
+<input type="radio" name="q1">
+<label>Частично, возможности есть не во всех сферах</label>
+</div>
+
+<div class="option">
+<input type="radio" name="q1">
+<label>Нет, возможностей недостаточно</label>
+</div>
+
+</div>
+
+<div class="question">
+<h2><i class="fa-solid fa-laptop-code"></i> 2. Какая сфера развивается быстрее всего?</h2>
+
+<div class="option">
+<input type="radio" name="q2">
+<label>IT и современные технологии</label>
+</div>
+
+<div class="option">
+<input type="radio" name="q2">
+<label>Наука и образование</label>
+</div>
+
+<div class="option">
+<input type="radio" name="q2">
+<label>Бизнес и предпринимательство</label>
+</div>
+
+</div>
+
+<div class="question">
+<h2><i class="fa-solid fa-briefcase"></i> 3. Хотели бы вы строить карьеру в России?</h2>
+
+<div class="option">
+<input type="radio" name="q3">
+<label>Да, планирую работать и развиваться в России</label>
+</div>
+
+<div class="option">
+<input type="radio" name="q3">
+<label>Возможно, если будут хорошие перспективы</label>
+</div>
+
+<div class="option">
+<input type="radio" name="q3">
+<label>Нет, рассматриваю другие варианты</label>
+</div>
+
+</div>
+
+<div class="question">
+<h2><i class="fa-solid fa-graduation-cap"></i> 4. Как вы оцениваете уровень образования?</h2>
+
+<div class="option">
+<input type="radio" name="q4">
+<label>Высокий уровень образования</label>
+</div>
+
+<div class="option">
+<input type="radio" name="q4">
+<label>Средний уровень</label>
+</div>
+
+<div class="option">
+<input type="radio" name="q4">
+<label>Требуется развитие системы</label>
+</div>
+
+</div>
+
+<button onclick="finishSurvey()">
+<i class="fa-solid fa-paper-plane"></i>
+Отправить опрос
+</button>
+
+<div id="result">
+
+<h2><i class="fa-solid fa-circle-check"></i> Опрос успешно отправлен</h2>
+
+<p>
+Спасибо за участие в исследовании.
+Ваш ответ был сохранен и учтен в статистике проекта
+«Россия — страна возможностей».
+</p>
+
+</div>
+
+</div>
+
+<div class="info">
+
+<div class="card">
+<i class="fa-solid fa-users"></i>
+<h3>120+ участников</h3>
+<p>
+Студенты и молодежь приняли участие в исследовании.
+</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-chart-line"></i>
+<h3>Анализ мнений</h3>
+<p>
+Опрос помогает изучить мнение молодежи о перспективах страны.
+</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-building-columns"></i>
+<h3>Тема проекта</h3>
+<p>
+Россия как современная страна возможностей для студентов.
+</p>
+</div>
+
+</div>
+
+<footer>
+
+<h2>Контактная информация</h2>
+
+<p><b>Студент:</b> Хайдаралиев Ифтихор</p>
+
+<p><b>Телефон:</b> +79829058969</p>
+
+<p><b>Email:</b> xwisee1@gmail.com</p>
+
+<div class="creator">
+Разработка сайта — Хайдаралиев Ифтихор
+</div>
+
+</footer>
+
+</div>
+
+<script>
+
+function finishSurvey(){
+
+document.getElementById("result").style.display = "block";
+
+window.scrollTo({
+top:document.body.scrollHeight,
+behavior:"smooth"
+});
+
+}
+
+</script>
+
+</body>
+</html>
